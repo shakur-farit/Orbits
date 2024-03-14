@@ -32,40 +32,36 @@ namespace Infrastructure.Services.SceneManagement
 		{
 			DestroyBubble();
 			DestroyNeedle();
-			DestroyDebuff();
 			DestroyBuff();
-			DestroyDebuffSpawner();
+			DestroySpawner();
 		}
 
 		private void CreateGameObjects()
 		{
 			CreateBubble();
 			CreateNeedle();
-			CreateDebuffSpawner();
+			CreateSpawner();
 		}
 
 		private void CreateBubble() => 
 			_gameFactory.CreateBubble();
 
 		private void CreateNeedle() => 
-			_gameFactory.CreateNeedle();
+			_gameFactory.CreateBigAsteroid();
 
-		private void CreateDebuffSpawner() => 
-			_gameFactory.CreateDebuffSpawner();
+		private void CreateSpawner() => 
+			_gameFactory.CreateSpawner();
 
 		private void DestroyBubble() => 
 			Object.Destroy(_gameFactory.Bubble);
 
 		private void DestroyNeedle() =>
-			Object.Destroy(_gameFactory.Needle);
+			Object.Destroy(_gameFactory.BigAsteroid);
 
 		private void DestroyBuff() =>
 			Object.Destroy(_gameFactory.Buff);
 
-		private void DestroyDebuff() => 
-			Object.Destroy(_gameFactory.Debuff);
-
-		private void DestroyDebuffSpawner() => 
-			Object.Destroy(_gameFactory.DebuffSpawner);
+		private void DestroySpawner() => 
+			Object.Destroy(_gameFactory.Spawner);
 	}
 }

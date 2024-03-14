@@ -35,19 +35,23 @@ namespace Infrastructure.States
 		private void InitGameObjects()
 		{
 			InitBubble();
-			InitNeedle();
-			InitDebuffSpawner();
+			InitAsteroids();
+			InitSpawner();
 			InitHud();
 		}
 
 		private void InitBubble() =>
 			_gameFactory.CreateBubble();
 
-		private void InitNeedle() =>
-			_gameFactory.CreateNeedle();
+		private void InitAsteroids()
+		{
+			_gameFactory.CreateBigAsteroid();
+			_gameFactory.CreateMiddleAsteroid();
+			_gameFactory.CreateSmallAsteroid();
+		}
 
-		private void InitDebuffSpawner() => 
-			_gameFactory.CreateDebuffSpawner();
+		private void InitSpawner() => 
+			_gameFactory.CreateSpawner();
 
 		private void InitHud() =>
 			_gameFactory.CreateHud();

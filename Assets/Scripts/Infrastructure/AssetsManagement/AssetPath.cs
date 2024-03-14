@@ -3,9 +3,10 @@ namespace Infrastructure.AssetsManagement
 	public static class AssetPath
 	{
 		public const string BubblePath = "Bubble";
-		public const string AsteroidBigPath = "Asteroid_Big";
+		public const string SmallAsteroidPath = "Asteroid_Small";
+		public const string MiddleAsteroidPath = "Asteroid_Middle";
+		public const string BigAsteroidPath = "Asteroid_Big";
 		public const string BuffPath = "Buff";
-		public const string DebuffPath = "Debuff";
 		public const string SpawnerPath = "Spawner";
 		public const string HudPath = "Hud";
 		public const string UIRootPath = "UIRoot";

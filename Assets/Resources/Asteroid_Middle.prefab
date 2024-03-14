@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2298656235940527964}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505675801073801214}
-  - component: {fileID: 6206408123775080534}
+  - component: {fileID: 8918799692177127383}
   m_Layer: 0
   m_Name: Asteroid_Middle
   m_TagString: Untagged
@@ -153,7 +153,7 @@ Transform:
   - {fileID: 4685023340075099214}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6206408123775080534
+--- !u!114 &8918799692177127383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,6 +162,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4305541509214135413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 685871cbe55e53a44bd69013429b032d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d6830aa7bf1ac644ba9505c9e75d582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

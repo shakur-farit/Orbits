@@ -1,5 +1,5 @@
-using Infrastructure.Services.AngleSwitcher;
 using Infrastructure.Services.Input;
+using Infrastructure.Services.StaticData;
 using Zenject;
 
 namespace Rotators
@@ -9,19 +9,27 @@ namespace Rotators
 		private IInputService _inputService;
 
 		[Inject]
-		public void Constructor(IAngleSwitcherService angleSwitcherService, IInputService inputService)
+		public void Constructor(IInputService inputService,
+			IStaticDataService staticData)
 		{
-			AngleSwitcherService = angleSwitcherService;
+			_staticDataService = staticData;
 			_inputService = inputService;
 		}
-
-		protected override void OnStart(){ }
 
 		protected override void Update()
 		{
 			base.Update();
 
 			_inputService.Tap();
+		}
+
+		protected override void StartRotate() => 
+			SetupAngleAndSpeed();
+
+		private void SetupAngleAndSpeed()
+		{
+			RotateAngle = _staticDataService.ForRotator.RotateAngle;
+			RotateSpeed = _staticDataService.ForRotator.HeroRotateSpeed;
 		}
 	}
 }

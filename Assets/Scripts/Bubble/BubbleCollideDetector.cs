@@ -9,34 +9,23 @@ namespace Bubble
 	public class BubbleCollideDetector : MonoBehaviour
 	{
 		private BubbleDeath _bubbleDeath;
-		private bool _isCollidedWithNeedle;
+		private bool _isCollidedWithAsteroid;
 		private bool _isCollidedWithBuff;
-		private bool _isCollidedWithDebuff;
 
 		private void Start()
 		{
 			_bubbleDeath = GetComponent<BubbleDeath>();
 
 			StaticEventsHandler.OnBuffSpawned += InformAboutNewBuff;
-			StaticEventsHandler.OnDebuffSpawned += InformAboutNewDebuff;
 		}
 
-		private void OnDestroy()
-		{
+		private void OnDestroy() => 
 			StaticEventsHandler.OnBuffSpawned -= InformAboutNewBuff;
-			StaticEventsHandler.OnDebuffSpawned -= InformAboutNewDebuff;
-		}
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if (other.GetComponent<NeedleRotator>())
-				CollideWithNeedle();
-
-			if (other.GetComponent<Debuff>())
-			{
-				CollideWithDebuff();
-				Destroy(other.gameObject);
-			}
+			if (other.GetComponent<AsteroidRotator>())
+				CollideWithAsteroid();
 
 			if (other.GetComponent<Buff>())
 			{
@@ -53,30 +42,17 @@ namespace Bubble
 			_isCollidedWithBuff = true;
 			StaticEventsHandler.CallPickedUpBuffEvent();
 		}
-
-		private void CollideWithDebuff()
+		private void CollideWithAsteroid()
 		{
-			if(_isCollidedWithDebuff)
-				return;
-
-			_isCollidedWithDebuff = true;
-			StaticEventsHandler.CallPickedUpDebuffEvent();
-		}
-
-		private void CollideWithNeedle()
-		{
-			if(_isCollidedWithNeedle)
+			if(_isCollidedWithAsteroid)
 				return; 
 
-			_isCollidedWithNeedle = true;
+			_isCollidedWithAsteroid = true;
 			_bubbleDeath.StopTheGame();
 			
 		}
 
 		private void InformAboutNewBuff() =>
 			_isCollidedWithBuff = false;
-
-		private void InformAboutNewDebuff() => 
-			_isCollidedWithDebuff = false;
 	}
 }
