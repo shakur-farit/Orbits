@@ -34,14 +34,14 @@ namespace Infrastructure.States
 
 		private void InitGameObjects()
 		{
-			InitBubble();
+			InitHero();
 			InitAsteroids();
 			InitSpawner();
 			InitHud();
 		}
 
-		private void InitBubble() =>
-			_gameFactory.CreateBubble();
+		private void InitHero() =>
+			_gameFactory.CreateHero();
 
 		private void InitAsteroids()
 		{

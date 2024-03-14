@@ -12,7 +12,7 @@ namespace Rotators
 		public void Constructor(IInputService inputService,
 			IStaticDataService staticData)
 		{
-			_staticDataService = staticData;
+			StaticDataService = staticData;
 			_inputService = inputService;
 		}
 
@@ -28,8 +28,8 @@ namespace Rotators
 
 		private void SetupAngleAndSpeed()
 		{
-			RotateAngle = _staticDataService.ForRotator.RotateAngle;
-			RotateSpeed = _staticDataService.ForRotator.HeroRotateSpeed;
+			RotateAngle = StaticDataService.ForRotator.RotateAngle;
+			RotateSpeed = StaticDataService.ForRotator.HeroRotateSpeed;
 		}
 	}
 }

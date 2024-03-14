@@ -29,35 +29,35 @@ namespace Drops
 
 		private void OnEnable()
 		{
-			StaticEventsHandler.OnStartedToPlay += SpawnBuff;
+			StaticEventsHandler.OnStartedToPlay += SpawnStar;
 			StaticEventsHandler.OnPlayerDied += StopSpawning;
 		}
 
 		private void OnDisable()
 		{
-			StaticEventsHandler.OnStartedToPlay -= SpawnBuff;
+			StaticEventsHandler.OnStartedToPlay -= SpawnStar;
 			StaticEventsHandler.OnPlayerDied -= StopSpawning;
 		}
 
-		private void SpawnBuff() =>
-			StartCoroutine(SpawnBuffRoutine());
+		private void SpawnStar() =>
+			StartCoroutine(SpawnStarRoutine());
 
-		private IEnumerator SpawnBuffRoutine()
+		private IEnumerator SpawnStarRoutine()
 		{
-			float spawnTime = GetBuffSpawnTime();
+			float spawnTime = GetStarSpawnTime();
 			Vector2 position = GetPositionToSpawn();
 
 			yield return new WaitForSeconds(spawnTime);
-			_gameFactory.CreateBuff(position, transform);
-			StaticEventsHandler.CallBuffSpawnedEvent();
+			_gameFactory.CreateStar(position, transform);
+			StaticEventsHandler.CallStarSpawnedEvent();
 
-			StartCoroutine(SpawnBuffRoutine());
+			StartCoroutine(SpawnStarRoutine());
 		}
 
-		private float GetBuffSpawnTime()
+		private float GetStarSpawnTime()
 		{
-			float minSpawnTime = _staticData.ForBuff.MinSpawnCooldown;
-			float maxSpawnTime = _staticData.ForBuff.MaxSpawnCooldown;
+			float minSpawnTime = _staticData.ForStar.MinSpawnCooldown;
+			float maxSpawnTime = _staticData.ForStar.MaxSpawnCooldown;
 			return _randomService.Next(minSpawnTime, maxSpawnTime);
 		}
 

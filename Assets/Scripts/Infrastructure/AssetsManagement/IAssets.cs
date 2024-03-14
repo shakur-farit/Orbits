@@ -6,6 +6,6 @@ namespace Infrastructure.AssetsManagement
 	{
 		GameObject Instantiate(string path);
 		GameObject Instantiate(string path, Transform parentTransform);
-		GameObject Instantiate(string debuffPath, Vector2 position, Transform parentTransform);
+		GameObject Instantiate(string path, Vector2 position, Transform parentTransform);
 	}
 }

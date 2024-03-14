@@ -1,10 +1,8 @@
-using Drops;
 using Infrastructure.Factory;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoadService;
 using Infrastructure.Services.StaticData;
 using Infrastructure.States;
-using StaticEvents;
 using UI.Services.Factory;
 using UI.Services.Window;
 using UnityEngine;

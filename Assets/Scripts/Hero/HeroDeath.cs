@@ -5,9 +5,9 @@ using UI.Services.Window;
 using UnityEngine;
 using Zenject;
 
-namespace Bubble
+namespace Hero
 {
-	public class BubbleDeath : MonoBehaviour
+	public class HeroDeath : MonoBehaviour
 	{
 		private IWindowService _windowService;
 		private IPersistentProgressService _progressService;
@@ -24,19 +24,19 @@ namespace Bubble
 
 		public void StopTheGame()
 		{
-			SaveBestTime();
+			SaveBestScore();
 			OpenGameOverWindow();
-			DestroyBubble();
+			DestroyHero();
 		}
 
 
-		private void SaveBestTime()
+		private void SaveBestScore()
 		{
-			int currentTime = _progressService.Progress.TimeData.CurrentTime;
-			int bestTime = _progressService.Progress.TimeData.BestTime;
+			int currentTime = _progressService.Progress.scoreData.CurrentScore;
+			int bestTime = _progressService.Progress.scoreData.BestScore;
 
 			if (currentTime > bestTime)
-				_progressService.Progress.TimeData.BestTime = currentTime;
+				_progressService.Progress.scoreData.BestScore = currentTime;
 
 			_saveService.SaveProgress();
 		}
@@ -44,7 +44,7 @@ namespace Bubble
 		private void OpenGameOverWindow() =>
 			_windowService.Open(WindowId.GameOver);
 
-		private void DestroyBubble()
+		private void DestroyHero()
 		{
 			StaticEventsHandler.CallPlayerDiedEvent();
 			Destroy(gameObject);

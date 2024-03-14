@@ -4,8 +4,8 @@ namespace Rotators
 	{
 		protected override void SetupAngleAndSpeed()
 		{
-			RotateAngle = _staticDataService.ForRotator.RotateAngle;
-			RotateSpeed = _staticDataService.ForRotator.SmallAsteroidRotateSpeed;
+			RotateAngle = StaticDataService.ForRotator.RotateAngle;
+			RotateSpeed = StaticDataService.ForRotator.SmallAsteroidRotateSpeed;
 		}
 	}
 }

@@ -18,7 +18,7 @@ namespace Hud
 
 		private void UpdateScoreText()
 		{
-			
+						
 		}
 	}
 }

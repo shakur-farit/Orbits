@@ -30,36 +30,44 @@ namespace Infrastructure.Services.SceneManagement
 
 		private void ClearScene()
 		{
-			DestroyBubble();
-			DestroyNeedle();
-			DestroyBuff();
+			DestroyHero();
+			DestroyAsteroids();
+			DestroyStar();
 			DestroySpawner();
 		}
 
 		private void CreateGameObjects()
 		{
-			CreateBubble();
-			CreateNeedle();
+			CreateHero();
+			CreateAsteroids();
 			CreateSpawner();
 		}
 
-		private void CreateBubble() => 
-			_gameFactory.CreateBubble();
+		private void CreateHero() => 
+			_gameFactory.CreateHero();
 
-		private void CreateNeedle() => 
+		private void CreateAsteroids()
+		{
 			_gameFactory.CreateBigAsteroid();
+			_gameFactory.CreateMiddleAsteroid();
+			_gameFactory.CreateSmallAsteroid();
+		}
 
 		private void CreateSpawner() => 
 			_gameFactory.CreateSpawner();
 
-		private void DestroyBubble() => 
-			Object.Destroy(_gameFactory.Bubble);
+		private void DestroyHero() => 
+			Object.Destroy(_gameFactory.Hero);
 
-		private void DestroyNeedle() =>
+		private void DestroyAsteroids()
+		{
 			Object.Destroy(_gameFactory.BigAsteroid);
+			Object.Destroy(_gameFactory.MiddleAsteroid);
+			Object.Destroy(_gameFactory.SmallAsteroid);
+		}
 
-		private void DestroyBuff() =>
-			Object.Destroy(_gameFactory.Buff);
+		private void DestroyStar() =>
+			Object.Destroy(_gameFactory.Star);
 
 		private void DestroySpawner() => 
 			Object.Destroy(_gameFactory.Spawner);

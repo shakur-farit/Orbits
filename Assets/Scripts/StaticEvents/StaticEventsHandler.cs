@@ -5,10 +5,8 @@ namespace StaticEvents
 	public static class StaticEventsHandler
 	{
 		public static Action OnStartedToPlay;
-		public static Action OnBuffSpawned;
-		public static Action OnPickedUpBuff;
-		public static Action OnDebuffSpawned;
-		public static Action OnPickedUpDebuff;
+		public static Action OnStarSpawned;
+		public static Action OnPickedUpStar;
 		public static Action OnPlayerDied;
 
 
@@ -18,16 +16,10 @@ namespace StaticEvents
 		public static void CallPlayerDiedEvent() => 
 			OnPlayerDied?.Invoke();
 
-		public static void CallBuffSpawnedEvent() => 
-			OnBuffSpawned?.Invoke();
+		public static void CallStarSpawnedEvent() => 
+			OnStarSpawned?.Invoke();
 
-		public static void CallPickedUpBuffEvent() =>
-			OnPickedUpBuff?.Invoke();
-
-		public static void CallDebuffSpawnedEvent() => 
-			OnDebuffSpawned?.Invoke();
-
-		public static void CallPickedUpDebuffEvent() => 
-			OnPickedUpDebuff?.Invoke();
+		public static void CallPickedUpStarEvent() =>
+			OnPickedUpStar?.Invoke();
 	}
 }

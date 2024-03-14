@@ -5,7 +5,6 @@ using Infrastructure.Services.StaticData;
 using Infrastructure.States;
 using UI.Services.Factory;
 using UI.Services.Window;
-using UnityEngine;
 
 namespace Infrastructure
 {

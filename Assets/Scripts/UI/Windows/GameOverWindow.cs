@@ -2,14 +2,15 @@ using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SceneManagement;
 using StaticEvents;
 using TMPro;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace UI.Windows
 {
 	public class GameOverWindow : WindowBase
 	{
-		public TextMeshProUGUI CurrentTimeText;
-		public TextMeshProUGUI BestTimeText;
+		public TextMeshProUGUI CurrentScoreText;
+		public TextMeshProUGUI BestScoreText;
 
 		private IRestartable _restartable;
 		private IPersistentProgressService _progressService;
@@ -29,10 +30,10 @@ namespace UI.Windows
 		}
 
 		private void CurrentTimeTextUpdate() => 
-			CurrentTimeText.text = _progressService.Progress.TimeData.CurrentTime.ToString();
+			CurrentScoreText.text = _progressService.Progress.scoreData.CurrentScore.ToString();
 
 		private void BestTimeTextUpdate() => 
-			BestTimeText.text = _progressService.Progress.TimeData.GetBestTime().ToString();
+			BestScoreText.text = _progressService.Progress.scoreData.GetBestScore().ToString();
 
 		private void Restart()
 		{

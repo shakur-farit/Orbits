@@ -10,7 +10,7 @@ namespace Rotators
 		protected float RotateAngle;
 		protected float RotateSpeed;
 
-		protected IStaticDataService _staticDataService;
+		protected IStaticDataService StaticDataService;
 
 
 		private void OnEnable()

@@ -7,7 +7,7 @@ namespace Rotators
 	{
 		[Inject]
 		public void Constructor(IStaticDataService staticData) =>
-			_staticDataService = staticData;
+			StaticDataService = staticData;
 
 		protected override void StartRotate() => 
 			SetupAngleAndSpeed();

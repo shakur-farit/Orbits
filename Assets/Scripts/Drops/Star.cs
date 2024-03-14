@@ -1,10 +1,10 @@
 namespace Drops
 {
-	public class Buff : Drop
+	public class Star : Drop
 	{
 		protected override void StartCoroutineOnStart()
 		{
-			_timeToDestroy = _staticData.ForBuff.TimeToDestroy;
+			_timeToDestroy = _staticData.ForStar.TimeToDestroy;
 
 			StartCoroutine(DestroyRoutine(_timeToDestroy));
 		}

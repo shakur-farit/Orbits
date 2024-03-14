@@ -18,21 +18,21 @@ namespace Drops
 
 		protected void Start()
 		{
-			StaticEventsHandler.OnPlayerDied += DestroyDebuff;
+			StaticEventsHandler.OnPlayerDied += DestroyDrop;
 
 			StartCoroutineOnStart();
 		}
 
 		protected void OnDestroy()
 		{
-			StaticEventsHandler.OnPlayerDied -= DestroyDebuff;
+			StaticEventsHandler.OnPlayerDied -= DestroyDrop;
 
 			StopAllCoroutines();
 		}
 
 		protected abstract void StartCoroutineOnStart();
 
-		private void DestroyDebuff() =>
+		private void DestroyDrop() =>
 			Destroy(gameObject);
 
 		protected IEnumerator DestroyRoutine(int timeToDestroy)

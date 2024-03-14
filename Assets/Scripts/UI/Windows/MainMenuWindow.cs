@@ -2,6 +2,7 @@ using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SceneManagement;
 using StaticEvents;
 using TMPro;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
@@ -11,7 +12,7 @@ namespace UI.Windows
 	{
 		public Button QuitButton;
 		
-		public TextMeshProUGUI BestTimeText;
+		public TextMeshProUGUI BestScoreText;
 
 		private IPersistentProgressService _progressService;
 		private IQuitable _quitService;
@@ -27,7 +28,7 @@ namespace UI.Windows
 		{
 			CloseButton.onClick.AddListener(() => Play());
 			QuitButton.onClick.AddListener(() => Quit());
-			BestTimeTextUpdate();
+			BestScoreTextUpdate();
 		}
 
 		private void Quit() => 
@@ -39,7 +40,7 @@ namespace UI.Windows
 			CloseWindow();
 		}
 
-		private void BestTimeTextUpdate() =>
-			BestTimeText.text = _progressService.Progress.TimeData.GetBestTime().ToString();
+		private void BestScoreTextUpdate() =>
+			BestScoreText.text = _progressService.Progress.scoreData.GetBestScore().ToString();
 	}
 }
