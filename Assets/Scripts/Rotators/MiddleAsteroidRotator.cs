@@ -1,11 +1,11 @@
 namespace Rotators
 {
-	public class MiddleAsteroidRotator : AsteroidRotator
+	public class MiddleAsteroidRotator : Rotator
 	{
 		protected override void SetupAngleAndSpeed()
 		{
-			RotateAngle = StaticDataService.ForRotator.RotateAngle;
-			RotateSpeed = StaticDataService.ForRotator.MiddleAsteroidRotateSpeed;
+			RotateAngle = StaticDataService.ForAsteroids.RotateAngle;
+			RotateSpeed = StaticDataService.ForAsteroids.MiddleAsteroidRotateSpeed;
 		}
 	}
 }

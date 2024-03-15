@@ -13,7 +13,7 @@ namespace Infrastructure.Services.Input
 			{
 				Touch touch = UnityEngine.Input.GetTouch(0);
 
-				if(touch.phase == TouchPhase.Began)
+				if (touch.phase == TouchPhase.Ended) 
 					IsTaped?.Invoke();
 			}
 		}

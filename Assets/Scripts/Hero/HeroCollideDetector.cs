@@ -1,10 +1,9 @@
-using Rotators;
+using Asteroids;
 using StaticEvents;
 using UnityEngine;
 
 namespace Hero
 {
-	[RequireComponent(typeof(HeroDeath))]
 	public class HeroCollideDetector : MonoBehaviour
 	{
 		private HeroDeath _heroDeath;
@@ -13,7 +12,7 @@ namespace Hero
 
 		private void Start()
 		{
-			_heroDeath = GetComponent<HeroDeath>();
+			_heroDeath = GetComponentInParent<HeroDeath>();
 
 			StaticEventsHandler.OnStarSpawned += InformAboutNewStar;
 		}
@@ -23,7 +22,7 @@ namespace Hero
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if (other.GetComponent<AsteroidRotator>())
+			if (other.GetComponent<Asteroid>())
 				CollideWithAsteroid();
 
 			if (other.GetComponent<Drops.Star>())
@@ -44,11 +43,10 @@ namespace Hero
 		private void CollideWithAsteroid()
 		{
 			if(_isCollidedWithAsteroid)
-				return; 
+				return;
 
 			_isCollidedWithAsteroid = true;
 			_heroDeath.StopTheGame();
-			
 		}
 
 		private void InformAboutNewStar() =>

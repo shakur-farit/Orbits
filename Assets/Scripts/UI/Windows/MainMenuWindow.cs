@@ -2,7 +2,6 @@ using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SceneManagement;
 using StaticEvents;
 using TMPro;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
@@ -41,6 +40,6 @@ namespace UI.Windows
 		}
 
 		private void BestScoreTextUpdate() =>
-			BestScoreText.text = _progressService.Progress.scoreData.GetBestScore().ToString();
+			BestScoreText.text = _progressService.Progress.ScoreData.GetBestScore().ToString();
 	}
 }

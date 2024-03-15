@@ -1,3 +1,4 @@
+using System;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoadService;
 using StaticEvents;
@@ -32,11 +33,11 @@ namespace Hero
 
 		private void SaveBestScore()
 		{
-			int currentTime = _progressService.Progress.scoreData.CurrentScore;
-			int bestTime = _progressService.Progress.scoreData.BestScore;
+			int currentScore = _progressService.Progress.ScoreData.CurrentScore;
+			int bestScore = _progressService.Progress.ScoreData.BestScore;
 
-			if (currentTime > bestTime)
-				_progressService.Progress.scoreData.BestScore = currentTime;
+			if (currentScore > bestScore)
+				_progressService.Progress.ScoreData.BestScore = currentScore;
 
 			_saveService.SaveProgress();
 		}

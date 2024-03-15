@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6806074845437545064}
   - component: {fileID: 103826292678310153}
   m_Layer: 5
-  m_Name: TextContainer
+  m_Name: ScoreContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 7579269860127926112}
   - component: {fileID: 32934087247858983}
   m_Layer: 5
-  m_Name: TimeText
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 8994424969919201881}
   - component: {fileID: 2096176506522289047}
   m_Layer: 5
-  m_Name: TimeText
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 3839427414577445954}
   - component: {fileID: 6659419058763414337}
   m_Layer: 5
-  m_Name: BestTimeText
+  m_Name: BestScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 2927295032995050684}
   - component: {fileID: 5229759304281752127}
   m_Layer: 5
-  m_Name: YoutTimeText
+  m_Name: YoutScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,5 +993,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloseButton: {fileID: 7454988270668002739}
-  CurrentTimeText: {fileID: 2096176506522289047}
-  BestTimeText: {fileID: 32934087247858983}
+  CurrentScoreText: {fileID: 2096176506522289047}
+  BestScoreText: {fileID: 32934087247858983}

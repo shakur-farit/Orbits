@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2774435473410325939}
   - component: {fileID: 6012588648644312492}
   m_Layer: 5
-  m_Name: TimeTextContainer
+  m_Name: ScoreTextContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 4489377372237278165}
   - component: {fileID: 6338322209538187801}
   m_Layer: 5
-  m_Name: BestTimeText
+  m_Name: BestScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CloseButton: {fileID: 6451667276448087376}
   QuitButton: {fileID: 435201958210747024}
-  BestTimeText: {fileID: 8975458834077113912}
+  BestScoreText: {fileID: 8975458834077113912}
 --- !u!1 &5002862278650090722
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 486427878377663633}
   - component: {fileID: 8975458834077113912}
   m_Layer: 5
-  m_Name: TimeText
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

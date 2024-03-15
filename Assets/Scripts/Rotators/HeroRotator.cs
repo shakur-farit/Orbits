@@ -1,11 +1,11 @@
 namespace Rotators
 {
-	public class SmallAsteroidRotator : Rotator
+	public class HeroRotator : Rotator
 	{
 		protected override void SetupAngleAndSpeed()
 		{
 			RotateAngle = StaticDataService.ForAsteroids.RotateAngle;
-			RotateSpeed = StaticDataService.ForAsteroids.SmallAsteroidRotateSpeed;
+			RotateSpeed = StaticDataService.ForHero.HeroRotateSpeed;
 		}
 	}
 }

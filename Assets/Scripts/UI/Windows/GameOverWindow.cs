@@ -30,10 +30,10 @@ namespace UI.Windows
 		}
 
 		private void CurrentTimeTextUpdate() => 
-			CurrentScoreText.text = _progressService.Progress.scoreData.CurrentScore.ToString();
+			CurrentScoreText.text = _progressService.Progress.ScoreData.CurrentScore.ToString();
 
 		private void BestTimeTextUpdate() => 
-			BestScoreText.text = _progressService.Progress.scoreData.GetBestScore().ToString();
+			BestScoreText.text = _progressService.Progress.ScoreData.GetBestScore().ToString();
 
 		private void Restart()
 		{

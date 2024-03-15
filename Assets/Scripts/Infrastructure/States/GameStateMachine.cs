@@ -6,15 +6,12 @@ using Infrastructure.Services.SaveLoadService;
 using Infrastructure.Services.StaticData;
 using UI.Services.Factory;
 using UI.Services.Window;
+using UnityEngine;
 
 namespace Infrastructure.States
 {
-	public class GameStateMachine : IStateMachine
+	public class GameStateMachine : StateMachine
 	{
-		public Dictionary<Type, IState> StatesDictionary { get; }
-
-		public IState ActiveState { get; private set; }
-
 		public GameStateMachine(IStaticDataService staticDataService, IPersistentProgressService progressService,
 			ILoadService loadService, IGameFactory gameFactory, IUIFactory uiFactory, IWindowService windowService)
 		{
@@ -25,14 +22,6 @@ namespace Infrastructure.States
 				[typeof(LoadLevelState)] = new LoadLevelState(this, gameFactory, uiFactory),
 				[typeof(GameLoopingState)] = new GameLoopingState(windowService)
 			};
-		}
-
-		public void Enter<TState>() where TState : IState
-		{
-			ActiveState?.Exit();
-			IState state = StatesDictionary[typeof(TState)];
-			ActiveState = state;
-			state.Enter();
 		}
 	}
 }

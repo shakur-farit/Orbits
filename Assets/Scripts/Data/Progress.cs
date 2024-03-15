@@ -6,6 +6,7 @@ namespace Data
 	[Serializable]
 	public class Progress
 	{
-		public ScoreData scoreData = new();
+		public ScoreData ScoreData = new();
+		public OrbitData OrbitData = new();
 	}
 }

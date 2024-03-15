@@ -1,17 +1,22 @@
 using Infrastructure.Services.StaticData;
 using StaticEvents;
 using UnityEngine;
+using Zenject;
 
 namespace Rotators
 {
 	public abstract class Rotator : MonoBehaviour
 	{
 		private const float Zero = 0;
+
 		protected float RotateAngle;
 		protected float RotateSpeed;
 
 		protected IStaticDataService StaticDataService;
 
+		[Inject]
+		public void Constructor(IStaticDataService staticData) =>
+			StaticDataService = staticData;
 
 		private void OnEnable()
 		{
@@ -25,12 +30,15 @@ namespace Rotators
 			StaticEventsHandler.OnStartedToPlay -= StartRotate;
 
 
-		protected virtual void Update() =>
+		private void Update() =>
 			DoRotate();
 
-		protected void DoRotate() =>
+		private void DoRotate() =>
 			transform.Rotate(0f, 0f, RotateAngle * RotateSpeed);
 
-		protected abstract void StartRotate();
+		private void StartRotate() => 
+			SetupAngleAndSpeed();
+
+		protected abstract void SetupAngleAndSpeed();
 	}
 }
