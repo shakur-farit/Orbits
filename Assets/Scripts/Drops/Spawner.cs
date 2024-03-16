@@ -10,7 +10,6 @@ namespace Drops
 {
 	public class Spawner : MonoBehaviour
 	{
-		private const float Radius = 1f;
 		private readonly Vector2 _center = Vector2.zero;
 
 		private IGameFactory _gameFactory;
@@ -61,9 +60,27 @@ namespace Drops
 			return _randomService.Next(minSpawnTime, maxSpawnTime);
 		}
 
-		private Vector2 GetPositionToSpawn() =>
-			_center + new Vector2(Random.value - 0.5f, Random.value - 0.5f)
-				.normalized * Radius;
+		private Vector2 GetPositionToSpawn()
+		{
+			float radius = GetRadiusToSpawn();
+
+			return _center + new Vector2(Random.value - 0.5f, Random.value - 0.5f)
+				.normalized * radius;
+		}
+
+		private float GetRadiusToSpawn()
+		{
+			float[] radius =
+			{
+				_staticData.ForOrbits.SmallOrbitRadius,
+				_staticData.ForOrbits.MiddleOrbitRadius,
+				_staticData.ForOrbits.BigOrbitRadius
+			};
+
+			int randomIndex = _randomService.Next(0, radius.Length);
+
+			return radius[randomIndex];
+		}
 
 		private void StopSpawning() => 
 			StopAllCoroutines();
