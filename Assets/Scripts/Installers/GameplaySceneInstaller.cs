@@ -2,6 +2,7 @@ using Infrastructure.AssetsManagement;
 using Infrastructure.Factory;
 using Infrastructure.Services.AngleSwitcher;
 using Infrastructure.Services.Input;
+using Infrastructure.Services.OrbitSwitcher;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.Randomizer;
 using Infrastructure.Services.SaveLoadService;
@@ -21,6 +22,7 @@ namespace Installers
 			RegisterAssetsService();
 			RegisterRandomService();
 			RegisterAngleSwitcher();
+			RegisterOrbitSwitcher();
 			RegisterGameFactory();
 			RegisterUIFactory();
 			RegisterWindowService();
@@ -54,8 +56,11 @@ namespace Installers
 		private void RegisterInputService() => 
 			Container.BindInterfacesAndSelfTo<InputService>().AsSingle();
 
-		private void RegisterAngleSwitcher() => 
+		private void RegisterAngleSwitcher() =>
 			Container.BindInterfacesAndSelfTo<AngleSwitcherService>().AsSingle();
+
+		private void RegisterOrbitSwitcher() =>
+			Container.BindInterfacesAndSelfTo<OrbitSwitcherService>().AsSingle();
 
 		private void RegisterUIFactory() => 
 			Container.BindInterfacesAndSelfTo<UIFactory>().AsSingle();

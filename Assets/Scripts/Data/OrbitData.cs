@@ -5,6 +5,7 @@ namespace Data
 	[Serializable]
 	public class OrbitData
 	{
-		public float OrbitRadius;
+		public float CurrentOrbitRadius;
+		public float PreviousOrbitRadius;
 	}
 }

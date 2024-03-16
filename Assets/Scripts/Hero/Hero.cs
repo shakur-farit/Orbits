@@ -1,5 +1,5 @@
-using System;
 using Infrastructure.Services.Input;
+using Infrastructure.Services.OrbitSwitcher;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.StaticData;
 using UnityEngine;
@@ -12,14 +12,16 @@ namespace Hero
 		private IStaticDataService _staticData;
 		private IInputService _inputService;
 		private IPersistentProgressService _progressService;
+		private IOrbitSwitcherService _orbitSwitcher;
 
 		[Inject]
 		public void Constructor(IStaticDataService staticData, IInputService inputService,
-			IPersistentProgressService progressService)
+			IPersistentProgressService progressService, IOrbitSwitcherService orbitSwitcher)
 		{
 			_staticData = staticData;
 			_inputService = inputService;
 			_progressService = progressService;
+			_orbitSwitcher = orbitSwitcher;
 		}
 
 		private void Start()
@@ -37,21 +39,15 @@ namespace Hero
 
 		private void SetOrbit()
 		{
-			float orbitRadius = _staticData.ForOrbits.SmallOrbitRadius;
-			_progressService.Progress.OrbitData.OrbitRadius = orbitRadius;
-			transform.position = new Vector3(orbitRadius, 0f, 0f);
+			float orbitRadius = _staticData.ForOrbits.MiddleOrbitRadius;
+			_progressService.Progress.OrbitData.CurrentOrbitRadius = orbitRadius;
+			transform.position = new Vector2(orbitRadius, 0f);
 		}
 
 		private void SwitchOrbit()
 		{
-			float previousOrbitRadius;
-			float currentOrbitRadius = _progressService.Progress.OrbitData.OrbitRadius;
-
-			if (currentOrbitRadius == _staticData.ForOrbits.SmallOrbitRadius)
-			{
-				currentOrbitRadius = _staticData.ForOrbits.MiddleOrbitRadius;
-				transform.position = new Vector3(currentOrbitRadius, 0f, 0f);
-			}
+			Debug.Log(_orbitSwitcher.SwitchOrbit());
+			transform.localPosition = _orbitSwitcher.SwitchOrbit();
 		}
 	}
 }
