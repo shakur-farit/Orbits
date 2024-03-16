@@ -29,12 +29,14 @@ namespace Drops
 		private void OnEnable()
 		{
 			StaticEventsHandler.OnStartedToPlay += SpawnStar;
+			StaticEventsHandler.OnStartedToPlay += SpawnDebuff;
 			StaticEventsHandler.OnHeroDied += StopSpawning;
 		}
 
 		private void OnDisable()
 		{
 			StaticEventsHandler.OnStartedToPlay -= SpawnStar;
+			StaticEventsHandler.OnStartedToPlay -= SpawnDebuff;
 			StaticEventsHandler.OnHeroDied -= StopSpawning;
 		}
 
@@ -57,6 +59,28 @@ namespace Drops
 		{
 			float minSpawnTime = _staticData.ForStar.MinSpawnCooldown;
 			float maxSpawnTime = _staticData.ForStar.MaxSpawnCooldown;
+			return _randomService.Next(minSpawnTime, maxSpawnTime);
+		}
+
+		private void SpawnDebuff() => 
+			StartCoroutine(SpawnDebuffRoutine());
+
+		private IEnumerator SpawnDebuffRoutine()
+		{
+			float spawnTime = GetDebuffSpawnTime();
+			Vector2 position = GetPositionToSpawn();
+
+			yield return new WaitForSeconds(spawnTime);
+			_gameFactory.CreateDebuff(position, transform);
+			StaticEventsHandler.CallDebuffSpawnedEvent();
+
+			StartCoroutine(SpawnDebuffRoutine());
+		}
+
+		private float GetDebuffSpawnTime()
+		{
+			float minSpawnTime = _staticData.ForDebuff.MinSpawnCooldown;
+			float maxSpawnTime = _staticData.ForDebuff.MaxSpawnCooldown;
 			return _randomService.Next(minSpawnTime, maxSpawnTime);
 		}
 

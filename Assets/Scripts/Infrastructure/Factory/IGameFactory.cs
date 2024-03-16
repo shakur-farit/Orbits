@@ -10,13 +10,15 @@ namespace Infrastructure.Factory
 		GameObject SmallAsteroid { get; set; }
 		GameObject Spawner { get; }
 		GameObject Star { get; }
+		GameObject Debuff { get; }
 
 		void CreateHero();
 		void CreateBigAsteroid();
 		void CreateMiddleAsteroid();
 		void CreateSmallAsteroid();
 		void CreateHud();
-		void CreateStar(Vector2 position, Transform transform);
+		void CreateStar(Vector2 position, Transform parentTransform);
+		void CreateDebuff(Vector2 position, Transform parentTransform);
 		void CreateSpawner();
 	}
 }

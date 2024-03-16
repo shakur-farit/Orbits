@@ -20,12 +20,10 @@ namespace Hud
 		{
 			UpdateScoreText();
 
-			StaticEventsHandler.OnPickedUpStar += UpdateScoreText;
+			StaticEventsHandler.OnScoreChanged += UpdateScoreText;
 		}
 
-		private void UpdateScoreText()
-		{
+		private void UpdateScoreText() => 
 			ScoreText.text = _progressService.Progress.ScoreData.CurrentScore.ToString();
-		}
 	}
 }

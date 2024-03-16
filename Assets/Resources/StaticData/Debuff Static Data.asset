@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d20554f661aec544097be6183ede7606, type: 3}
-  m_Name: Star Static Data
+  m_Script: {fileID: 11500000, guid: 4606b0a420a17b749a59fb30b950eb3a, type: 3}
+  m_Name: Debuff Static Data
   m_EditorClassIdentifier: 
-  MinSpawnCooldown: 2
-  MaxSpawnCooldown: 10
-  TimeToDestroy: 5
-  ScoreValue: 1
+  MinSpawnCooldown: 0
+  MaxSpawnCooldown: 0
+  TimeToDestroy: 0
+  IncreaseRotateSpeedValue: 0

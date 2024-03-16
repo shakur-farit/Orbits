@@ -8,6 +8,7 @@ namespace Infrastructure.Services.StaticData
 		AsteroidsStaticData ForAsteroids { get; }
 		OrbitsStaticData ForOrbits { get; }
 		StarStaticData ForStar { get; }
+		DebuffStaticData ForDebuff { get; }
 		void  Load();
 	}
 }
