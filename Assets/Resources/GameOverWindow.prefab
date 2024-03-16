@@ -739,7 +739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'BEST TIME:'
+  m_text: 'BEST SCORE:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d104d5abf4d66a439f767ce5a2b07a3, type: 2}
   m_sharedMaterial: {fileID: 4501663370606430503, guid: 5d104d5abf4d66a439f767ce5a2b07a3, type: 2}
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'YOUR TIME:'
+  m_text: 'YOUR SCORE:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d104d5abf4d66a439f767ce5a2b07a3, type: 2}
   m_sharedMaterial: {fileID: 4501663370606430503, guid: 5d104d5abf4d66a439f767ce5a2b07a3, type: 2}

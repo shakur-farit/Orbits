@@ -20,10 +20,7 @@ namespace Rotators
 			RotateSpeed = StaticDataService.ForHero.HeroRotateSpeed;
 		}
 
-		private void IncreaseRotateSpeed()
-		{
+		private void IncreaseRotateSpeed() => 
 			RotateSpeed += StaticDataService.ForDebuff.IncreaseRotateSpeedValue;
-			Debug.Log(RotateSpeed);
-		}
 	}
 }

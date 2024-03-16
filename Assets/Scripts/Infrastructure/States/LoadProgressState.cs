@@ -1,6 +1,7 @@
 using Data;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoadService;
+using UnityEngine;
 
 namespace Infrastructure.States
 {
@@ -27,7 +28,7 @@ namespace Infrastructure.States
 		{
 		}
 
-		private void LoadProgressOrInitNew() =>
+		private void LoadProgressOrInitNew() => 
 			_progressService.Progress = _loadService.LoadProgress() ?? InitNewProgress();
 
 		private Progress InitNewProgress() =>

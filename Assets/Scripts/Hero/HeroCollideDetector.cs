@@ -85,7 +85,6 @@ namespace Hero
 
 			_isCollidedWithDebuff = true;
 			StaticEventsHandler.CallPickedUpDebuffEvent();
-			Debug.Log("Collide");
 		}
 
 		private void InformAboutNewDebuff() =>

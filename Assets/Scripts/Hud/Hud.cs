@@ -1,3 +1,4 @@
+using System;
 using Infrastructure.Services.PersistentProgress;
 using StaticEvents;
 using TMPro;
@@ -18,9 +19,14 @@ namespace Hud
 
 		private void Start()
 		{
-			UpdateScoreText();
-
+			StaticEventsHandler.OnStartedToPlay += UpdateScoreText;
 			StaticEventsHandler.OnScoreChanged += UpdateScoreText;
+		}
+
+		private void OnDestroy()
+		{
+			StaticEventsHandler.OnStartedToPlay -= UpdateScoreText;
+			StaticEventsHandler.OnScoreChanged -= UpdateScoreText;
 		}
 
 		private void UpdateScoreText() => 
