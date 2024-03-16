@@ -1,3 +1,5 @@
+using Infrastructure.Services.PersistentProgress;
+using StaticEvents;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -8,17 +10,22 @@ namespace Hud
 	{
 		public TextMeshProUGUI ScoreText;
 
+		private IPersistentProgressService _progressService;
 
-		//[Inject]
-		//private void Constructor(ICountUpTimerService countUpTimer) => 
-		//	_countUpTimer = countUpTimer;
+		[Inject]
+		private void Constructor(IPersistentProgressService progressService) =>
+			_progressService = progressService;
 
-		private void Update() => 
+		private void Start()
+		{
 			UpdateScoreText();
+
+			StaticEventsHandler.OnPickedUpStar += UpdateScoreText;
+		}
 
 		private void UpdateScoreText()
 		{
-						
+			ScoreText.text = _progressService.Progress.ScoreData.CurrentScore.ToString();
 		}
 	}
 }

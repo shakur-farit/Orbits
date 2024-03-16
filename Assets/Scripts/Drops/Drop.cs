@@ -18,14 +18,14 @@ namespace Drops
 
 		protected void Start()
 		{
-			StaticEventsHandler.OnPlayerDied += DestroyDrop;
+			StaticEventsHandler.OnHeroDied += DestroyDrop;
 
 			StartCoroutineOnStart();
 		}
 
 		protected void OnDestroy()
 		{
-			StaticEventsHandler.OnPlayerDied -= DestroyDrop;
+			StaticEventsHandler.OnHeroDied -= DestroyDrop;
 
 			StopAllCoroutines();
 		}

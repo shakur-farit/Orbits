@@ -7,6 +7,7 @@ using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.Randomizer;
 using Infrastructure.Services.SaveLoadService;
 using Infrastructure.Services.SceneManagement;
+using Infrastructure.Services.Score;
 using Infrastructure.Services.StaticData;
 using UI.Services.Factory;
 using UI.Services.Window;
@@ -22,6 +23,7 @@ namespace Installers
 			RegisterAssetsService();
 			RegisterRandomService();
 			RegisterAngleSwitcher();
+			RegisterScoreService();
 			RegisterOrbitSwitcher();
 			RegisterGameFactory();
 			RegisterUIFactory();
@@ -40,6 +42,9 @@ namespace Installers
 
 		private void RegisterPersistentProgressService() => 
 			Container.BindInterfacesAndSelfTo<PersistentProgressService>().AsSingle();
+
+		private void RegisterScoreService() =>
+			Container.BindInterfacesAndSelfTo<ScoreService>().AsSingle();
 
 		private void RegisterSceneService() => 
 			Container.BindInterfacesAndSelfTo<SceneService>().AsSingle();

@@ -39,15 +39,12 @@ namespace Hero
 
 		private void SetOrbit()
 		{
-			float orbitRadius = _staticData.ForOrbits.MiddleOrbitRadius;
+			float orbitRadius = _staticData.ForOrbits.SmallOrbitRadius;
 			_progressService.Progress.OrbitData.CurrentOrbitRadius = orbitRadius;
 			transform.position = new Vector2(orbitRadius, 0f);
 		}
 
-		private void SwitchOrbit()
-		{
-			Debug.Log(_orbitSwitcher.SwitchOrbit());
+		private void SwitchOrbit() => 
 			transform.localPosition = _orbitSwitcher.SwitchOrbit();
-		}
 	}
 }

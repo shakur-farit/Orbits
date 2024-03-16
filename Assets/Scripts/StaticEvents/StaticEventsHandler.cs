@@ -7,14 +7,14 @@ namespace StaticEvents
 		public static Action OnStartedToPlay;
 		public static Action OnStarSpawned;
 		public static Action OnPickedUpStar;
-		public static Action OnPlayerDied;
+		public static Action OnHeroDied;
 
 
 		public static void CallStartedToPlayEvent() => 
 			OnStartedToPlay?.Invoke();
 
 		public static void CallPlayerDiedEvent() => 
-			OnPlayerDied?.Invoke();
+			OnHeroDied?.Invoke();
 
 		public static void CallStarSpawnedEvent() => 
 			OnStarSpawned?.Invoke();

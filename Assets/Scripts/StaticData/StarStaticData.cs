@@ -10,7 +10,7 @@ namespace StaticData
 
 		public int TimeToDestroy;
 
-		public float RotateSpeedDecreasingValue;
+		public int ScoreValue;
 
 		private void OnValidate()
 		{

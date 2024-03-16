@@ -24,10 +24,14 @@ namespace Rotators
 			RotateSpeed = Zero;
 
 			StaticEventsHandler.OnStartedToPlay += StartRotate;
+			StaticEventsHandler.OnHeroDied += StopRotate;
 		}
 
-		private void OnDisable() => 
+		private void OnDisable()
+		{
 			StaticEventsHandler.OnStartedToPlay -= StartRotate;
+			StaticEventsHandler.OnHeroDied -= StopRotate;
+		}
 
 
 		private void Update() =>
@@ -38,6 +42,9 @@ namespace Rotators
 
 		private void StartRotate() => 
 			SetupAngleAndSpeed();
+
+		private void StopRotate() => 
+			enabled = false;
 
 		protected abstract void SetupAngleAndSpeed();
 	}

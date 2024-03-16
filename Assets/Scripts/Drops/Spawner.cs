@@ -30,13 +30,13 @@ namespace Drops
 		private void OnEnable()
 		{
 			StaticEventsHandler.OnStartedToPlay += SpawnStar;
-			StaticEventsHandler.OnPlayerDied += StopSpawning;
+			StaticEventsHandler.OnHeroDied += StopSpawning;
 		}
 
 		private void OnDisable()
 		{
 			StaticEventsHandler.OnStartedToPlay -= SpawnStar;
-			StaticEventsHandler.OnPlayerDied -= StopSpawning;
+			StaticEventsHandler.OnHeroDied -= StopSpawning;
 		}
 
 		private void SpawnStar() =>

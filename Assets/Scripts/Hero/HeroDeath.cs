@@ -1,4 +1,3 @@
-using System;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoadService;
 using StaticEvents;

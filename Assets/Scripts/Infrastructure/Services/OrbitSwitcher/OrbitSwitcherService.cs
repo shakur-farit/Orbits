@@ -27,38 +27,34 @@ namespace Infrastructure.Services.OrbitSwitcher
 		{
 			float previousOrbitRadius = _progressService.Progress.OrbitData.PreviousOrbitRadius;
 			float currentOrbitRadius = _progressService.Progress.OrbitData.CurrentOrbitRadius;
-			Vector2 position = Vector2.zero;
+			Vector2 orbitRadiusToSwitch = Vector2.zero;
 
 			if (currentOrbitRadius == SmallOrbitRadius)
 			{
 				_progressService.Progress.OrbitData.PreviousOrbitRadius = currentOrbitRadius;
 				_progressService.Progress.OrbitData.CurrentOrbitRadius = MiddleOrbitRadius;
-				position = new Vector2(MiddleOrbitRadius, 0f);
+				orbitRadiusToSwitch = new Vector2(MiddleOrbitRadius, 0f);
 			}
-
-			if (currentOrbitRadius == MiddleOrbitRadius && previousOrbitRadius == SmallOrbitRadius)
+			else if (currentOrbitRadius == MiddleOrbitRadius && previousOrbitRadius == SmallOrbitRadius)
 			{
 				_progressService.Progress.OrbitData.PreviousOrbitRadius = currentOrbitRadius;
 				_progressService.Progress.OrbitData.CurrentOrbitRadius = BigOrbitRadius;
-				position = new Vector2(BigOrbitRadius, 0f);
+				orbitRadiusToSwitch = new Vector2(BigOrbitRadius, 0f);
 			}
-
-			if (currentOrbitRadius == MiddleOrbitRadius && previousOrbitRadius == BigOrbitRadius)
+			else if (currentOrbitRadius == MiddleOrbitRadius && previousOrbitRadius == BigOrbitRadius)
 			{
 				_progressService.Progress.OrbitData.PreviousOrbitRadius = currentOrbitRadius;
 				_progressService.Progress.OrbitData.CurrentOrbitRadius = SmallOrbitRadius;
-				position = new Vector2(SmallOrbitRadius, 0);
+				orbitRadiusToSwitch = new Vector2(SmallOrbitRadius, 0);
 			}
-
-			if (currentOrbitRadius == BigOrbitRadius)
+			else if (currentOrbitRadius == BigOrbitRadius)
 			{
 				_progressService.Progress.OrbitData.PreviousOrbitRadius = currentOrbitRadius;
 				_progressService.Progress.OrbitData.CurrentOrbitRadius = MiddleOrbitRadius;
-				position = new Vector2(MiddleOrbitRadius, 0f);
+				orbitRadiusToSwitch = new Vector2(MiddleOrbitRadius, 0f);
 			}
-			Debug.Log(currentOrbitRadius + "/" + previousOrbitRadius);
 
-			return position;
+			return orbitRadiusToSwitch;
 		}
 	}
 }
