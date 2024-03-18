@@ -29,14 +29,16 @@ namespace Drops
 		private void OnEnable()
 		{
 			StaticEventsHandler.OnStartedToPlay += SpawnStar;
-			StaticEventsHandler.OnStartedToPlay += SpawnDebuff;
+			StaticEventsHandler.OnStartedToPlay += SpawnSpeedUpper;
+			StaticEventsHandler.OnStartedToPlay += SpawnAngleSwitcher;
 			StaticEventsHandler.OnHeroDied += StopSpawning;
 		}
 
 		private void OnDisable()
 		{
 			StaticEventsHandler.OnStartedToPlay -= SpawnStar;
-			StaticEventsHandler.OnStartedToPlay -= SpawnDebuff;
+			StaticEventsHandler.OnStartedToPlay -= SpawnSpeedUpper;
+			StaticEventsHandler.OnStartedToPlay -= SpawnAngleSwitcher;
 			StaticEventsHandler.OnHeroDied -= StopSpawning;
 		}
 
@@ -45,7 +47,7 @@ namespace Drops
 
 		private IEnumerator SpawnStarRoutine()
 		{
-			float spawnTime = GetStarSpawnTime();
+			float spawnTime = GetSpawnTime(_staticData.ForStar.MinSpawnCooldown, _staticData.ForStar.MaxSpawnCooldown);
 			Vector2 position = GetPositionToSpawn();
 
 			yield return new WaitForSeconds(spawnTime);
@@ -55,34 +57,38 @@ namespace Drops
 			StartCoroutine(SpawnStarRoutine());
 		}
 
-		private float GetStarSpawnTime()
-		{
-			float minSpawnTime = _staticData.ForStar.MinSpawnCooldown;
-			float maxSpawnTime = _staticData.ForStar.MaxSpawnCooldown;
-			return _randomService.Next(minSpawnTime, maxSpawnTime);
-		}
+		private void SpawnSpeedUpper() => 
+			StartCoroutine(SpawnSpeedUpperRoutine());
 
-		private void SpawnDebuff() => 
-			StartCoroutine(SpawnDebuffRoutine());
-
-		private IEnumerator SpawnDebuffRoutine()
+		private IEnumerator SpawnSpeedUpperRoutine()
 		{
-			float spawnTime = GetDebuffSpawnTime();
+			float spawnTime = GetSpawnTime(_staticData.ForSpeedUpper.MinSpawnCooldown, _staticData.ForSpeedUpper.MaxSpawnCooldown);
 			Vector2 position = GetPositionToSpawn();
 
 			yield return new WaitForSeconds(spawnTime);
-			_gameFactory.CreateDebuff(position, transform);
-			StaticEventsHandler.CallDebuffSpawnedEvent();
+			_gameFactory.CreateSpeedUpper(position, transform);
+			StaticEventsHandler.CallSpeedUpperSpawnedEvent();
 
-			StartCoroutine(SpawnDebuffRoutine());
+			StartCoroutine(SpawnSpeedUpperRoutine());
 		}
 
-		private float GetDebuffSpawnTime()
+		private void SpawnAngleSwitcher() =>
+			StartCoroutine(SpawnAngleSwitcherRoutine());
+
+		private IEnumerator SpawnAngleSwitcherRoutine()
 		{
-			float minSpawnTime = _staticData.ForDebuff.MinSpawnCooldown;
-			float maxSpawnTime = _staticData.ForDebuff.MaxSpawnCooldown;
-			return _randomService.Next(minSpawnTime, maxSpawnTime);
+			float spawnTime = GetSpawnTime(_staticData.ForAngleSwitcher.MinSpawnCooldown, _staticData.ForAngleSwitcher.MaxSpawnCooldown);
+			Vector2 position = GetPositionToSpawn();
+
+			yield return new WaitForSeconds(spawnTime);
+			_gameFactory.CreateAngleSwitcher(position, transform);
+			StaticEventsHandler.CallAngleSwitcherSpawnedEvent();
+
+			StartCoroutine(SpawnSpeedUpperRoutine());
 		}
+
+		private float GetSpawnTime(float minSpawnTime, float maxSpawnTime) => 
+			_randomService.Next(minSpawnTime, maxSpawnTime);
 
 		private Vector2 GetPositionToSpawn()
 		{

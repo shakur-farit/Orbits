@@ -1,4 +1,3 @@
-using System;
 using Infrastructure.Services.PersistentProgress;
 using StaticEvents;
 using TMPro;

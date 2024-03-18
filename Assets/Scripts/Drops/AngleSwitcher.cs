@@ -1,10 +1,10 @@
 namespace Drops
 {
-	public class Star : Drop
+	public class AngleSwitcher : Drop
 	{
 		protected override void StartCoroutineOnStart()
 		{
-			TimeToDestroy = StaticData.ForStar.TimeToDestroy;
+			TimeToDestroy = StaticData.ForAngleSwitcher.TimeToDestroy;
 
 			StartCoroutine(DestroyRoutine(TimeToDestroy));
 		}

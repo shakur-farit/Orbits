@@ -8,13 +8,13 @@ namespace Drops
 {
 	public  abstract class Drop : MonoBehaviour
 	{
-		protected int _timeToDestroy;
+		protected int TimeToDestroy;
 
-		protected IStaticDataService _staticData;
+		protected IStaticDataService StaticData;
 
 		[Inject]
 		protected void Constructor(IStaticDataService staticData) => 
-			_staticData = staticData;
+			StaticData = staticData;
 
 		protected void Start()
 		{

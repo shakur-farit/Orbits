@@ -33,6 +33,7 @@ namespace Infrastructure.Services.SceneManagement
 			DestroyHero();
 			DestroyAsteroids();
 			DestroyStar();
+			DestroySpeedUpper();
 			DestroySpawner();
 		}
 
@@ -68,6 +69,9 @@ namespace Infrastructure.Services.SceneManagement
 
 		private void DestroyStar() =>
 			Object.Destroy(_gameFactory.Star);
+
+		private void DestroySpeedUpper() => 
+			Object.Destroy(_gameFactory.SpeedUpper);
 
 		private void DestroySpawner() => 
 			Object.Destroy(_gameFactory.Spawner);

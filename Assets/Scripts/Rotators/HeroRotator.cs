@@ -1,18 +1,28 @@
+using Infrastructure.Services.AngleSwitcher;
 using StaticEvents;
-using UnityEngine;
+using Zenject;
 
 namespace Rotators
 {
 	public class HeroRotator : Rotator
 	{
+		private IAngleSwitcherService _angleSwitcher;
+
+		[Inject]
+		public void Constructor(IAngleSwitcherService angleSwitcher) => 
+			_angleSwitcher = angleSwitcher;
+
 		private void Start()
 		{
-
-			StaticEventsHandler.OnPickedUpDebuff += IncreaseRotateSpeed;
+			StaticEventsHandler.OnSpeedUpperPickedUp += IncreaseRotateSpeed;
+			StaticEventsHandler.OnAngleSwitcherPickedUp += SwitchAngle;
 		}
 
-		private void OnDestroy() => 
-			StaticEventsHandler.OnPickedUpDebuff -= IncreaseRotateSpeed;
+		private void OnDestroy()
+		{
+			StaticEventsHandler.OnSpeedUpperPickedUp -= IncreaseRotateSpeed;
+			StaticEventsHandler.OnAngleSwitcherPickedUp -= SwitchAngle;
+		}
 
 		protected override void SetupAngleAndSpeed()
 		{
@@ -21,6 +31,9 @@ namespace Rotators
 		}
 
 		private void IncreaseRotateSpeed() => 
-			RotateSpeed += StaticDataService.ForDebuff.IncreaseRotateSpeedValue;
+			RotateSpeed += StaticDataService.ForSpeedUpper.IncreaseRotateSpeedValue;
+
+		private void SwitchAngle() => 
+			RotateAngle = _angleSwitcher.SwitchAngle(RotateAngle);
 	}
 }

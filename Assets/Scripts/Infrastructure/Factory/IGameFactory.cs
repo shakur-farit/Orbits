@@ -10,7 +10,8 @@ namespace Infrastructure.Factory
 		GameObject SmallAsteroid { get; set; }
 		GameObject Spawner { get; }
 		GameObject Star { get; }
-		GameObject Debuff { get; }
+		GameObject SpeedUpper { get; }
+		GameObject AngleSwitcher { get; }
 
 		void CreateHero();
 		void CreateBigAsteroid();
@@ -18,7 +19,8 @@ namespace Infrastructure.Factory
 		void CreateSmallAsteroid();
 		void CreateHud();
 		void CreateStar(Vector2 position, Transform parentTransform);
-		void CreateDebuff(Vector2 position, Transform parentTransform);
+		void CreateSpeedUpper(Vector2 position, Transform parentTransform);
 		void CreateSpawner();
+		void CreateAngleSwitcher(Vector2 position, Transform parentTransform);
 	}
 }

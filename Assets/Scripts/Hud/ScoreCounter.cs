@@ -26,13 +26,13 @@ namespace Hud
 
 		private void OnEnable()
 		{
-			StaticEventsHandler.OnPickedUpStar += AddScore;
+			StaticEventsHandler.OnStarPickedUp += AddScore;
 			StaticEventsHandler.OnStartedToPlay += ResetCurrentScore;
 		}
 
 		private void OnDisable()
 		{
-			StaticEventsHandler.OnPickedUpStar -= AddScore;
+			StaticEventsHandler.OnStarPickedUp -= AddScore;
 			StaticEventsHandler.OnStartedToPlay -= ResetCurrentScore;
 		}
 

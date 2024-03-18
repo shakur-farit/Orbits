@@ -12,7 +12,8 @@ namespace Infrastructure.Factory
 		public GameObject MiddleAsteroid { get; set; }
 		public GameObject SmallAsteroid { get; set; }
 		public GameObject Star { get; private set; }
-		public GameObject Debuff { get; private set; }
+		public GameObject SpeedUpper { get; private set; }
+		public GameObject AngleSwitcher { get; private set; }
 		public GameObject Spawner { get; private set; }
 
 
@@ -34,8 +35,11 @@ namespace Infrastructure.Factory
 		public void CreateStar(Vector2 position, Transform parentTransform) => 
 			Star = _assets.Instantiate(AssetPath.StarPath, position, parentTransform);
 
-		public void CreateDebuff(Vector2 position, Transform parentTransform) =>
-			Debuff = _assets.Instantiate(AssetPath.DebuffPath, position, parentTransform);
+		public void CreateSpeedUpper(Vector2 position, Transform parentTransform) =>
+			SpeedUpper = _assets.Instantiate(AssetPath.SpeedUpperPath, position, parentTransform);
+
+		public void CreateAngleSwitcher(Vector2 position, Transform parentTransform) =>
+			AngleSwitcher = _assets.Instantiate(AssetPath.AngleSwitcherPath, position, parentTransform);
 
 		public void CreateSpawner() =>
 			Spawner = _assets.Instantiate(AssetPath.SpawnerPath);

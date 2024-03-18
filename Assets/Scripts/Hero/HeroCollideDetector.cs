@@ -13,7 +13,8 @@ namespace Hero
 		private HeroDeath _heroDeath;
 		private bool _isCollidedWithAsteroid;
 		private bool _isCollidedWithStar;
-		private bool _isCollidedWithDebuff;
+		private bool _isCollidedWithSpeedUpper;
+		private bool _isCollidedWithAngleSwitcher;
 
 		private IScoreService _scoreService;
 		private IStaticDataService _staticData;
@@ -30,13 +31,14 @@ namespace Hero
 			_heroDeath = GetComponentInParent<HeroDeath>();
 
 			StaticEventsHandler.OnStarSpawned += InformAboutNewStar;
-			StaticEventsHandler.OnDebuffSpawned += InformAboutNewDebuff;
+			StaticEventsHandler.OnSpeedUpperSpawned += InformAboutNewSpeedUpper;
+			StaticEventsHandler.OnAngleSwitcherSpawned += InformAboutNewAngleSwitcher;
 		}
 
 		private void OnDestroy()
 		{
 			StaticEventsHandler.OnStarSpawned -= InformAboutNewStar;
-			StaticEventsHandler.OnDebuffSpawned -= InformAboutNewDebuff;
+			StaticEventsHandler.OnSpeedUpperSpawned -= InformAboutNewSpeedUpper;
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
@@ -50,9 +52,15 @@ namespace Hero
 				Destroy(other.gameObject);
 			}
 
-			if (other.GetComponent<Debuff>())
+			if (other.GetComponent<SpeedUpper>())
 			{
-				CollideWithDebuff();
+				CollideWithSpeedUpper();
+				Destroy(other.gameObject);
+			}
+
+			if (other.GetComponent<AngleSwitcher>())
+			{
+				CollideWithAngleSwitcher();
 				Destroy(other.gameObject);
 			}
 		}
@@ -72,22 +80,34 @@ namespace Hero
 				return;
 
 			_isCollidedWithStar = true;
-			StaticEventsHandler.CallPickedUpStarEvent();
+			StaticEventsHandler.CallStarPickedUpEvent();
 		}
 
 		private void InformAboutNewStar() =>
 			_isCollidedWithStar = false;
 
-		private void CollideWithDebuff()
+		private void CollideWithSpeedUpper()
 		{
-			if (_isCollidedWithDebuff)
+			if (_isCollidedWithSpeedUpper)
 				return;
 
-			_isCollidedWithDebuff = true;
-			StaticEventsHandler.CallPickedUpDebuffEvent();
+			_isCollidedWithSpeedUpper = true;
+			StaticEventsHandler.CallSpeedUpperPickedUpEvent();
 		}
 
-		private void InformAboutNewDebuff() =>
-			_isCollidedWithDebuff = false;
+		private void InformAboutNewSpeedUpper() =>
+			_isCollidedWithSpeedUpper = false;
+
+		private void CollideWithAngleSwitcher()
+		{
+			if (_isCollidedWithAngleSwitcher)
+				return;
+
+			_isCollidedWithAngleSwitcher = true;
+			StaticEventsHandler.CallAngleSwitcherPickedUpEvent();
+		}
+		
+		private void InformAboutNewAngleSwitcher() => 
+			_isCollidedWithAngleSwitcher = false;
 	}
 }

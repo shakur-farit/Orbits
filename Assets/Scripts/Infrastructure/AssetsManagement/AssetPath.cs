@@ -7,7 +7,8 @@ namespace Infrastructure.AssetsManagement
 		public const string MiddleAsteroidPath = "Asteroid_Middle";
 		public const string BigAsteroidPath = "Asteroid_Big";
 		public const string StarPath = "Star";
-		public const string DebuffPath = "Debuff";
+		public const string SpeedUpperPath = "SpeedUpper";
+		public const string AngleSwitcherPath = "AngleSwitcher";
 		public const string SpawnerPath = "Spawner";
 		public const string HudPath = "Hud";
 		public const string UIRootPath = "UIRoot";
