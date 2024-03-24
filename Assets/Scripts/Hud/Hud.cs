@@ -1,4 +1,3 @@
-using System;
 using Infrastructure.Services.PersistentProgress;
 using StaticEvents;
 using TMPro;
@@ -11,10 +10,10 @@ namespace Hud
 	{
 		public TextMeshProUGUI ScoreText;
 
-		private IPersistentProgressService _progressService;
+		private PersistentProgressService _progressService;
 
 		[Inject]
-		private void Constructor(IPersistentProgressService progressService) =>
+		public void Constructor(PersistentProgressService progressService) =>
 			_progressService = progressService;
 
 		private void Start()

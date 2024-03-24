@@ -14,18 +14,18 @@ namespace Infrastructure
 	{
 		private Game _game;
 
-		private IStaticDataService _staticDataService;
-		private IPersistentProgressService _progressService;
+		private StaticDataService _staticDataService;
+		private PersistentProgressService _progressService;
 		private ILoadService _loadService;
 
-		private IGameFactory _gameFactory;
-		private IUIFactory _uiFactory;
-		private IWindowService _windowService;
+		private GameFactory _gameFactory;
+		private UIFactory _uiFactory;
+		private WindowService _windowService;
 
 
 		[Inject]
-		private void Constructor(IStaticDataService staticDataService, IPersistentProgressService progressService,
-			ILoadService loadService, IGameFactory gameFactory, IUIFactory uiFactory, IWindowService windowService)
+		public void Constructor(StaticDataService staticDataService, PersistentProgressService progressService,
+			ILoadService loadService, GameFactory gameFactory, UIFactory uiFactory, WindowService windowService)
 		{
 			_staticDataService = staticDataService;
 			_progressService = progressService;

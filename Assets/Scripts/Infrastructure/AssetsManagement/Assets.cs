@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Infrastructure.AssetsManagement
 {
-	public class Assets : IAssets
+	public class Assets
 	{
 		private readonly DiContainer _diContainer;
 

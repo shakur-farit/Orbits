@@ -6,9 +6,9 @@ namespace StaticEvents
 	{
 		public static Action OnStartedToPlay;
 		public static Action OnStarSpawned;
-		public static Action OnDebuffSpawned;
-		public static Action OnPickedUpStar;
-		public static Action OnPickedUpDebuff;
+		public static Action OnSpeedUpperSpawned;
+		public static Action OnStarPickedUp;
+		public static Action OnSpeedUpperPickedUp;
 		public static Action OnHeroDied;
 		public static Action OnScoreChanged;
 
@@ -22,14 +22,14 @@ namespace StaticEvents
 		public static void CallStarSpawnedEvent() => 
 			OnStarSpawned?.Invoke();
 
-		public static void CallDebuffSpawnedEvent() => 
-			OnDebuffSpawned?.Invoke();
+		public static void CallSpeedUpperSpawnedEvent() => 
+			OnSpeedUpperSpawned?.Invoke();
 
-		public static void CallPickedUpStarEvent() =>
-			OnPickedUpStar?.Invoke();
+		public static void CallStarPickedUpEvent() =>
+			OnStarPickedUp?.Invoke();
 
-		public static void CallPickedUpDebuffEvent() => 
-			OnPickedUpDebuff?.Invoke();
+		public static void CallSpeedUpperPickedUpEvent() => 
+			OnSpeedUpperPickedUp?.Invoke();
 
 		public static void CallScoreChangedEvent() => 
 			OnScoreChanged?.Invoke();

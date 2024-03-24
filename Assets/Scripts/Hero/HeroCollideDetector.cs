@@ -1,10 +1,8 @@
+using System;
 using Asteroids;
 using Drops;
-using Infrastructure.Services.Score;
-using Infrastructure.Services.StaticData;
 using StaticEvents;
 using UnityEngine;
-using Zenject;
 
 namespace Hero
 {
@@ -13,81 +11,54 @@ namespace Hero
 		private HeroDeath _heroDeath;
 		private bool _isCollidedWithAsteroid;
 		private bool _isCollidedWithStar;
-		private bool _isCollidedWithDebuff;
+		private bool _isCollidedWithSpeedUpper;
 
-		private IScoreService _scoreService;
-		private IStaticDataService _staticData;
-
-		[Inject]
-		public void Construct(IScoreService scoreService, IStaticDataService staticData)
-		{
-			_scoreService = scoreService;
-			_staticData = staticData;
-		}
 
 		private void Start()
 		{
 			_heroDeath = GetComponentInParent<HeroDeath>();
 
 			StaticEventsHandler.OnStarSpawned += InformAboutNewStar;
-			StaticEventsHandler.OnDebuffSpawned += InformAboutNewDebuff;
+			StaticEventsHandler.OnSpeedUpperSpawned += InformAboutNewSpeedUpper;
 		}
 
 		private void OnDestroy()
 		{
 			StaticEventsHandler.OnStarSpawned -= InformAboutNewStar;
-			StaticEventsHandler.OnDebuffSpawned -= InformAboutNewDebuff;
+			StaticEventsHandler.OnSpeedUpperSpawned -= InformAboutNewSpeedUpper;
 		}
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
 			if (other.GetComponent<Asteroid>())
-				CollideWithAsteroid();
+				Collide(_isCollidedWithAsteroid, _heroDeath.StopTheGame);
 
 			if (other.GetComponent<Star>())
 			{
-				CollideWithStar();
+				Collide(_isCollidedWithStar, StaticEventsHandler.CallStarPickedUpEvent);
 				Destroy(other.gameObject);
 			}
 
-			if (other.GetComponent<Debuff>())
+			if (other.GetComponent<SpeedUpper>())
 			{
-				CollideWithDebuff();
+				Collide(_isCollidedWithSpeedUpper, StaticEventsHandler.CallSpeedUpperPickedUpEvent);
 				Destroy(other.gameObject);
 			}
 		}
 
-		private void CollideWithAsteroid()
+		private void Collide(bool isCollided, Action action)
 		{
-			if(_isCollidedWithAsteroid)
+			if (isCollided)
 				return;
 
-			_isCollidedWithAsteroid = true;
-			_heroDeath.StopTheGame();
-		}
-
-		private void CollideWithStar()
-		{
-			if (_isCollidedWithStar)
-				return;
-
-			_isCollidedWithStar = true;
-			StaticEventsHandler.CallPickedUpStarEvent();
+			isCollided = true;
+			action();
 		}
 
 		private void InformAboutNewStar() =>
 			_isCollidedWithStar = false;
 
-		private void CollideWithDebuff()
-		{
-			if (_isCollidedWithDebuff)
-				return;
-
-			_isCollidedWithDebuff = true;
-			StaticEventsHandler.CallPickedUpDebuffEvent();
-		}
-
-		private void InformAboutNewDebuff() =>
-			_isCollidedWithDebuff = false;
+		private void InformAboutNewSpeedUpper() =>
+			_isCollidedWithSpeedUpper = false;
 	}
 }

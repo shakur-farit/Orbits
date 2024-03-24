@@ -4,9 +4,9 @@ namespace Infrastructure.States
 {
 	public class GameLoopingState : IState
 	{
-		private readonly IWindowService _windowService;
+		private readonly WindowService _windowService;
 
-		public GameLoopingState(IWindowService windowService) => 
+		public GameLoopingState(WindowService windowService) => 
 			_windowService = windowService;
 
 		public void Enter() =>

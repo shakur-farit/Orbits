@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace UI.Services.Factory
 {
-	public class UIFactory : IUIFactory
+	public class UIFactory
 	{
-		private readonly IAssets _assets;
+		private readonly Assets _assets;
 
 		public Transform UIRoot { get; private set; }
 
-		public UIFactory(IAssets assets) => 
+		public UIFactory(Assets assets) => 
 			_assets = assets;
 
 		public void CreateUIRoot() => 

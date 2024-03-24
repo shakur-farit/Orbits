@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace StaticData
 {
-	[CreateAssetMenu(fileName = "Debuff Static Data", menuName = "Static Data/Debuff")]
-	public class DebuffStaticData : ScriptableObject
+	[CreateAssetMenu(fileName = "SpeedUpper Static Data", menuName = "Static Data/SpeedUpper")]
+	public class SpeedUpperStaticData : ScriptableObject
 	{
 		[Range(0, 30)] public int MinSpawnCooldown;
 		[Range(0, 30)] public int MaxSpawnCooldown;

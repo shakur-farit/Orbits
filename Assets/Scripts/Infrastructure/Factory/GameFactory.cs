@@ -3,20 +3,20 @@ using UnityEngine;
 
 namespace Infrastructure.Factory
 {
-	public class GameFactory : IGameFactory
+	public class GameFactory
 	{
-		private readonly IAssets _assets;
+		private readonly Assets _assets;
 
 		public GameObject Hero { get; private set; }
 		public GameObject BigAsteroid { get; private set; }
 		public GameObject MiddleAsteroid { get; set; }
 		public GameObject SmallAsteroid { get; set; }
 		public GameObject Star { get; private set; }
-		public GameObject Debuff { get; private set; }
+		public GameObject SpeedUpper { get; private set; }
 		public GameObject Spawner { get; private set; }
 
 
-		public GameFactory(IAssets assets) => 
+		public GameFactory(Assets assets) => 
 			_assets = assets;
 
 		public void CreateHero() => 
@@ -34,8 +34,8 @@ namespace Infrastructure.Factory
 		public void CreateStar(Vector2 position, Transform parentTransform) => 
 			Star = _assets.Instantiate(AssetPath.StarPath, position, parentTransform);
 
-		public void CreateDebuff(Vector2 position, Transform parentTransform) =>
-			Debuff = _assets.Instantiate(AssetPath.DebuffPath, position, parentTransform);
+		public void CreateSpeedUpper(Vector2 position, Transform parentTransform) =>
+			SpeedUpper = _assets.Instantiate(AssetPath.SpeedUpperPath, position, parentTransform);
 
 		public void CreateSpawner() =>
 			Spawner = _assets.Instantiate(AssetPath.SpawnerPath);

@@ -35,42 +35,42 @@ namespace Installers
 		}
 
 		private void RegisterStaticDataService() => 
-			Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
+			Container.Bind<StaticDataService>().AsSingle();
 
 		private void RegisterSaveLoadService() => 
 			Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
 
 		private void RegisterPersistentProgressService() => 
-			Container.BindInterfacesAndSelfTo<PersistentProgressService>().AsSingle();
+			Container.Bind<PersistentProgressService>().AsSingle();
 
 		private void RegisterScoreService() =>
-			Container.BindInterfacesAndSelfTo<ScoreService>().AsSingle();
+			Container.Bind<ScoreService>().AsSingle();
 
 		private void RegisterSceneService() => 
 			Container.BindInterfacesAndSelfTo<SceneService>().AsSingle();
 
 		private void RegisterAssetsService() => 
-			Container.BindInterfacesAndSelfTo<Assets>().AsSingle();
+			Container.Bind<Assets>().AsSingle();
 
 		private void RegisterGameFactory() => 
-			Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
+			Container.Bind<GameFactory>().AsSingle();
 
 		private void RegisterRandomService() => 
-			Container.BindInterfacesAndSelfTo<RandomService>().AsSingle();
+			Container.Bind<RandomService>().AsSingle();
 
 		private void RegisterInputService() => 
-			Container.BindInterfacesAndSelfTo<InputService>().AsSingle();
+			Container.Bind<InputService>().AsSingle();
 
 		private void RegisterAngleSwitcher() =>
-			Container.BindInterfacesAndSelfTo<AngleSwitcherService>().AsSingle();
+			Container.Bind<AngleSwitcherService>().AsSingle();
 
 		private void RegisterOrbitSwitcher() =>
-			Container.BindInterfacesAndSelfTo<OrbitSwitcherService>().AsSingle();
+			Container.Bind<OrbitSwitcherService>().AsSingle();
 
 		private void RegisterUIFactory() => 
-			Container.BindInterfacesAndSelfTo<UIFactory>().AsSingle();
+			Container.Bind<UIFactory>().AsSingle();
 
 		private void RegisterWindowService() => 
-			Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
+			Container.Bind<WindowService>().AsSingle();
 	}
 }

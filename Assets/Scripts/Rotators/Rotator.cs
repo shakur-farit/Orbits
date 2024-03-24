@@ -12,10 +12,10 @@ namespace Rotators
 		protected float RotateAngle;
 		protected float RotateSpeed;
 
-		protected IStaticDataService StaticDataService;
+		protected StaticDataService StaticDataService;
 
 		[Inject]
-		public void Constructor(IStaticDataService staticData) =>
+		public void Constructor(StaticDataService staticData) =>
 			StaticDataService = staticData;
 
 		private void OnEnable()

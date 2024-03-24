@@ -2,7 +2,7 @@ using Data;
 
 namespace Infrastructure.Services.PersistentProgress
 {
-	public class PersistentProgressService : IPersistentProgressService
+	public class PersistentProgressService
 	{
     public Progress Progress { get; set; }
 	}

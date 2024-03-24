@@ -9,13 +9,13 @@ namespace Hero
 {
 	public class HeroDeath : MonoBehaviour
 	{
-		private IWindowService _windowService;
-		private IPersistentProgressService _progressService;
+		private WindowService _windowService;
+		private PersistentProgressService _progressService;
 		private ISaveService _saveService;
 
 		[Inject]
-		public void Construct(IWindowService windowService,
-			IPersistentProgressService progressService, ISaveService saveService)
+		public void Construct(WindowService windowService,
+			PersistentProgressService progressService, ISaveService saveService)
 		{
 			_windowService = windowService;
 			_progressService = progressService;

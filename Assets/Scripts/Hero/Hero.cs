@@ -9,14 +9,14 @@ namespace Hero
 {
 	public class Hero : MonoBehaviour
 	{
-		private IStaticDataService _staticData;
-		private IInputService _inputService;
-		private IPersistentProgressService _progressService;
-		private IOrbitSwitcherService _orbitSwitcher;
+		private StaticDataService _staticData;
+		private InputService _inputService;
+		private PersistentProgressService _progressService;
+		private OrbitSwitcherService _orbitSwitcher;
 
 		[Inject]
-		public void Constructor(IStaticDataService staticData, IInputService inputService,
-			IPersistentProgressService progressService, IOrbitSwitcherService orbitSwitcher)
+		public void Constructor(StaticDataService staticData, InputService inputService,
+			PersistentProgressService progressService, OrbitSwitcherService orbitSwitcher)
 		{
 			_staticData = staticData;
 			_inputService = inputService;
@@ -24,15 +24,14 @@ namespace Hero
 			_orbitSwitcher = orbitSwitcher;
 		}
 
-		private void Start()
-		{
+		private void OnEnable() => 
 			_inputService.IsTaped += SwitchOrbit;
 
-			SetOrbit();
-		}
-
-		private void OnDestroy() => 
+		private void OnDisable() => 
 			_inputService.IsTaped -= SwitchOrbit;
+
+		private void Start() => 
+			SetOrbit();
 
 		private void Update() => 
 			_inputService.Tap();

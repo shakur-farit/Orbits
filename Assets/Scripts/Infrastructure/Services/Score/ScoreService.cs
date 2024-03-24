@@ -2,11 +2,11 @@ using Infrastructure.Services.PersistentProgress;
 
 namespace Infrastructure.Services.Score
 {
-	public class ScoreService : IScoreService
+	public class ScoreService
 	{
-		private readonly IPersistentProgressService _progressService;
+		private readonly PersistentProgressService _progressService;
 
-		public ScoreService(IPersistentProgressService progressService) => 
+		public ScoreService(PersistentProgressService progressService) => 
 			_progressService = progressService;
 
 		public void IncreaseScore(int score) => 

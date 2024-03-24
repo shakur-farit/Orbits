@@ -5,11 +5,11 @@ namespace Infrastructure.States
 {
 	public class LoadLevelState : IState
 	{
-		private readonly IGameFactory _gameFactory;
-		private readonly IUIFactory _uiFactory;
+		private readonly GameFactory _gameFactory;
+		private readonly UIFactory _uiFactory;
 		private readonly GameStateMachine _gameStateMachine;
 
-		public LoadLevelState(GameStateMachine gameStateMachine, IGameFactory gameFactory, IUIFactory uiFactory)
+		public LoadLevelState(GameStateMachine gameStateMachine, GameFactory gameFactory, UIFactory uiFactory)
 		{
 			_gameStateMachine = gameStateMachine;
 			_gameFactory = gameFactory;

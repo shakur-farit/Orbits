@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 namespace StaticData
 {
 	[CreateAssetMenu(fileName = "Asteroids Static Data", menuName = "Static Data/Asteroids")]

@@ -10,10 +10,10 @@ namespace Drops
 	{
 		protected int _timeToDestroy;
 
-		protected IStaticDataService _staticData;
+		protected StaticDataService _staticData;
 
 		[Inject]
-		protected void Constructor(IStaticDataService staticData) => 
+		protected void Constructor(StaticDataService staticData) => 
 			_staticData = staticData;
 
 		protected void Start()

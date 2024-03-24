@@ -4,10 +4,10 @@ namespace Infrastructure.States
 {
 	public class LoadStaticDataState : IState
 	{
-		private readonly IStaticDataService _staticDataService;
+		private readonly StaticDataService _staticDataService;
 		private readonly GameStateMachine _stateMachine;
 
-		public LoadStaticDataState(GameStateMachine stateMachine, IStaticDataService staticDataService)
+		public LoadStaticDataState(GameStateMachine stateMachine, StaticDataService staticDataService)
 		{
 			_stateMachine = stateMachine;
 			_staticDataService = staticDataService;

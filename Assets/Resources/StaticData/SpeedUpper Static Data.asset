@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4606b0a420a17b749a59fb30b950eb3a, type: 3}
-  m_Name: Debuff Static Data
+  m_Name: SpeedUpper Static Data
   m_EditorClassIdentifier: 
   MinSpawnCooldown: 7
   MaxSpawnCooldown: 15

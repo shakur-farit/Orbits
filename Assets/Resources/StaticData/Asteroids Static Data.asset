@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Asteroids Static Data
   m_EditorClassIdentifier: 
   RotateAngle: 1
-  RotateSpeed: 0.2
-  SpeedChangeCooldown: 5
-  SpeedChangeValue: 0.1
+  BigAsteroidRotateSpeed: 1
+  MiddleAsteroidRotateSpeed: 0.5
+  SmallAsteroidRotateSpeed: 0.2

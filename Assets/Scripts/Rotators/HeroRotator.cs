@@ -1,18 +1,14 @@
 using StaticEvents;
-using UnityEngine;
 
 namespace Rotators
 {
 	public class HeroRotator : Rotator
 	{
-		private void Start()
-		{
-
-			StaticEventsHandler.OnPickedUpDebuff += IncreaseRotateSpeed;
-		}
+		private void Start() => 
+			StaticEventsHandler.OnSpeedUpperPickedUp += IncreaseRotateSpeed;
 
 		private void OnDestroy() => 
-			StaticEventsHandler.OnPickedUpDebuff -= IncreaseRotateSpeed;
+			StaticEventsHandler.OnSpeedUpperPickedUp -= IncreaseRotateSpeed;
 
 		protected override void SetupAngleAndSpeed()
 		{
@@ -21,6 +17,6 @@ namespace Rotators
 		}
 
 		private void IncreaseRotateSpeed() => 
-			RotateSpeed += StaticDataService.ForDebuff.IncreaseRotateSpeedValue;
+			RotateSpeed += StaticDataService.ForSpeedUpper.IncreaseRotateSpeedValue;
 	}
 }

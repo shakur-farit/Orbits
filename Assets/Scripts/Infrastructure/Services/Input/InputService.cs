@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Infrastructure.Services.Input
 {
-	public class InputService : IInputService
+	public class InputService
 	{
 		public event Action IsTaped;
 

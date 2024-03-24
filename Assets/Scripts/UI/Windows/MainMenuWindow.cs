@@ -13,11 +13,11 @@ namespace UI.Windows
 		
 		public TextMeshProUGUI BestScoreText;
 
-		private IPersistentProgressService _progressService;
+		private PersistentProgressService _progressService;
 		private IQuitable _quitService;
 
 		[Inject]
-		private void Constructor(IPersistentProgressService progressService, IQuitable quitService)
+		public void Constructor(PersistentProgressService progressService, IQuitable quitService)
 		{
 			_progressService = progressService;
 			_quitService = quitService;

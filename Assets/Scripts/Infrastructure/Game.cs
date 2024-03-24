@@ -12,9 +12,9 @@ namespace Infrastructure
 	{
 		public GameStateMachine StateMachine;
 
-		public Game(IStaticDataService staticDataService, IPersistentProgressService progressService,
-			ILoadService loadService, IGameFactory gameFactory, IUIFactory uiFactory, 
-			IWindowService windowService)
+		public Game(StaticDataService staticDataService, PersistentProgressService progressService,
+			ILoadService loadService, GameFactory gameFactory, UIFactory uiFactory, 
+			WindowService windowService)
 		{
 			StateMachine = new GameStateMachine(staticDataService, progressService, 
 				loadService, gameFactory, uiFactory, windowService);

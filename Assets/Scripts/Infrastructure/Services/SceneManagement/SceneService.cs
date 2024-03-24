@@ -5,9 +5,9 @@ namespace Infrastructure.Services.SceneManagement
 {
 	public class SceneService : IRestartable, IQuitable
 	{
-		private readonly IGameFactory _gameFactory;
+		private readonly GameFactory _gameFactory;
 
-		public SceneService(IGameFactory gameFactory)
+		public SceneService(GameFactory gameFactory)
 		{
 			_gameFactory = gameFactory;
 		}
@@ -27,12 +27,12 @@ namespace Infrastructure.Services.SceneManagement
 #endif
 		}
 
-
 		private void ClearScene()
 		{
 			DestroyHero();
 			DestroyAsteroids();
 			DestroyStar();
+			DestroySpeedUpper();
 			DestroySpawner();
 		}
 
@@ -68,6 +68,9 @@ namespace Infrastructure.Services.SceneManagement
 
 		private void DestroyStar() =>
 			Object.Destroy(_gameFactory.Star);
+
+		private void DestroySpeedUpper() =>
+			Object.Destroy(_gameFactory.SpeedUpper);
 
 		private void DestroySpawner() => 
 			Object.Destroy(_gameFactory.Spawner);

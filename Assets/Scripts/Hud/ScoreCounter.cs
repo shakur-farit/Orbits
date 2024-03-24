@@ -11,13 +11,13 @@ namespace Hud
 	{
 		private const int CurrentScoreOnStart = 0;
 
-		private IScoreService _scoreService;
-		private IStaticDataService _staticData;
-		private IPersistentProgressService _progressService;
+		private ScoreService _scoreService;
+		private StaticDataService _staticData;
+		private PersistentProgressService _progressService;
 
 		[Inject]
-		public void Constructor(IScoreService scoreService, IStaticDataService staticData,
-			IPersistentProgressService progressService)
+		public void Constructor(ScoreService scoreService, StaticDataService staticData,
+			PersistentProgressService progressService)
 		{
 			_scoreService = scoreService;
 			_staticData = staticData;
@@ -26,13 +26,13 @@ namespace Hud
 
 		private void OnEnable()
 		{
-			StaticEventsHandler.OnPickedUpStar += AddScore;
+			StaticEventsHandler.OnStarPickedUp += AddScore;
 			StaticEventsHandler.OnStartedToPlay += ResetCurrentScore;
 		}
 
 		private void OnDisable()
 		{
-			StaticEventsHandler.OnPickedUpStar -= AddScore;
+			StaticEventsHandler.OnStarPickedUp -= AddScore;
 			StaticEventsHandler.OnStartedToPlay -= ResetCurrentScore;
 		}
 

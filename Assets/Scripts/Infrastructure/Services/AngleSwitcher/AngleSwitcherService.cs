@@ -2,9 +2,9 @@ using Infrastructure.Services.Randomizer;
 
 namespace Infrastructure.Services.AngleSwitcher
 {
-	public class AngleSwitcherService : IAngleSwitcherService
+	public class AngleSwitcherService
 	{
-		public float SwitchAngle(float angle, IRandomService randomService)
+		public float SwitchAngle(float angle, RandomService randomService)
 		{
 			return -angle;
 		}

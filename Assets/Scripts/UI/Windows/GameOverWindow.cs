@@ -2,7 +2,6 @@ using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SceneManagement;
 using StaticEvents;
 using TMPro;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace UI.Windows
@@ -13,10 +12,10 @@ namespace UI.Windows
 		public TextMeshProUGUI BestScoreText;
 
 		private IRestartable _restartable;
-		private IPersistentProgressService _progressService;
+		private PersistentProgressService _progressService;
 
 		[Inject]
-		private void Constructor(IRestartable restartable,IPersistentProgressService progressService)
+		public void Constructor(IRestartable restartable,PersistentProgressService progressService)
 		{
 			_restartable = restartable;
 			_progressService = progressService;

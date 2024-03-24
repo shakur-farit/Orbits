@@ -2,11 +2,11 @@ using UI.Services.Factory;
 
 namespace UI.Services.Window
 {
-	public class WindowService : IWindowService
+	public class WindowService
 	{
-		private readonly IUIFactory _uiFactory;
+		private readonly UIFactory _uiFactory;
 
-		public WindowService(IUIFactory uiFactory) => 
+		public WindowService(UIFactory uiFactory) => 
 			_uiFactory = uiFactory;
 
 		public void Open(WindowId windowId)

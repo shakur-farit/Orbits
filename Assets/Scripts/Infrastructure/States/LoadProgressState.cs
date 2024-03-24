@@ -1,17 +1,16 @@
 using Data;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.Services.SaveLoadService;
-using UnityEngine;
 
 namespace Infrastructure.States
 {
 	public class LoadProgressState : IState
 	{
 		private readonly GameStateMachine _stateMachine;
-		private readonly IPersistentProgressService _progressService;
+		private readonly PersistentProgressService _progressService;
 		private readonly ILoadService _loadService;
 
-		public LoadProgressState(GameStateMachine stateMachine, IPersistentProgressService progressService, ILoadService loadService)
+		public LoadProgressState(GameStateMachine stateMachine, PersistentProgressService progressService, ILoadService loadService)
 		{
 			_stateMachine = stateMachine;
 			_progressService = progressService;
